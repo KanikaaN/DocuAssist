@@ -1,77 +1,83 @@
+### DocuAssist: Ramayana AI Chat Bot
 
-# DocuAssist: Your Document Assistant
+DocuAssist is an AI-powered chatbot designed to assist users with document-based queries, focusing initially on the epic Ramayana. Here’s how different components work together and how you can use this project:
 
-DocuAssist is an application designed to assist users in exploring and learning from various documents. In this instance, it focuses on the ancient Indian epic, the Ramayana. Leveraging natural language processing (NLP), translation services, and text-to-speech (TTS) technology, DocuAssist provides an interactive platform for users to delve into the depths of the Ramayana.
+#### Components Used:
 
-## Features
+1. **PDF Reader (`read_pdf` function):**
+   - Reads the "RAMAYANA.pdf" file and extracts text from it using PyPDF2. This text serves as the corpus for the chatbot.
 
-- **Text Input:** Users can input queries or questions related to the Ramayana using the provided text input interface.
-- **Response Generation:** DocuAssist generates responses based on the input query using the powerful GPT-3.5 model by OpenAI.
-- **Translation:** Responses can be translated into Hindi using the Opus-MT-EN-HI translation model.
-- **Text-to-Speech (TTS):** The generated response can be converted into audio using the MMS-TTS-ENG text-to-speech model.
-- **PDF Reading:** DocuAssist reads the content of the provided PDF file ("Ramayana.pdf") to extract information about the Ramayana.
+2. **Retrieval-Augmented Generation (RAG) (`RAG` class):**
+   - The `RAG` class is initialized with the extracted text from the Ramayana PDF. It provides a method `retrieve_passages` which, given a query, retrieves relevant passages from the Ramayana text. For demo purposes, it returns the first 1000 characters of the text as a passage.
 
-## Installation
+3. **Natural Language Processing (NLP) (`NLP` class):**
+   - Handles the generation of responses based on user queries using OpenAI's GPT-3.5 model (`gpt-3.5-turbo`). It generates responses based on the context provided by the retrieved passages and the user's query.
 
-1. Clone the repository:
+4. **Translation (`translate_text` function):**
+   - Utilizes the Opus-MT model hosted on Hugging Face for translating responses from English to Hindi. This allows the chatbot to respond in both English and Hindi.
 
-```sh
-git clone <repository-url>
-cd <repository-directory>
-```
+5. **Text-to-Speech (TTS) (`query_tts` function):**
+   - Uses the MMS-TTS model from Hugging Face to convert the chatbot's responses into audio format. This enables the chatbot to audibly communicate its responses to users.
 
-2. Install the required Python packages:
+#### Functionality:
 
-```sh
-pip install -r requirements.txt
-```
+- **User Interaction:**
+  - Users interact with the chatbot by asking questions related to the Ramayana via a Streamlit interface.
+  - The chat history is maintained and displayed on each interaction, showing both user queries and the chatbot's responses.
 
-3. Create a `secrets.toml` file in the `.streamlit` directory:
+- **Response Generation Flow:**
+  - When a user inputs a query, the chatbot first retrieves relevant passages from the Ramayana text using the RAG component.
+  - It then generates a response using NLP, incorporating the retrieved passages and the user's query.
+  - The response is translated into Hindi using the translation component, enhancing accessibility for Hindi-speaking users.
+  - Finally, the translated response is converted to speech using the TTS component, providing an audio response to the user.
 
-```sh
-cd .streamlit
-touch secrets.toml
-```
+#### How to Use:
 
-4. Open the `secrets.toml` file and add your API keys in the following format:
+1. **Clone the Repository:**
+   - Clone the repository to your local machine:
+     ```
+     git clone https://github.com/kanikaaN/DocuAssist
+     ```
+  
+2. **Configuration:**
+   - Navigate to the project directory and ensure you have a `secrets.toml` file with the following structure:
+     ```toml
+     [openai]
+     api_key = "YOUR_OPENAI_API_KEY"
+     
+     [huggingface]
+     translate_api_key = "YOUR_HUGGINGFACE_TRANSLATION_API_KEY"
+     tts_api_key = "YOUR_HUGGINGFACE_TTS_API_KEY"
+     ```
+     Replace `"YOUR_OPENAI_API_KEY"`, `"YOUR_HUGGINGFACE_TRANSLATION_API_KEY"`, and `"YOUR_HUGGINGFACE_TTS_API_KEY"` with your actual API keys from OpenAI and Hugging Face.
 
-```toml
-[openai]
-api_key = "YOUR_OPENAI_API_KEY"
+3. **Dependencies:**
+   - Install the required Python dependencies by running:
+     ```
+     pip install -r requirements.txt
+     ```
 
-[huggingface]
-translation_api_key = "YOUR_HUGGINGFACE_TRANSLATION_API_KEY"
-tts_api_key = "YOUR_HUGGINGFACE_TTS_API_KEY"
-```
+4. **Running the Application:**
+   - Execute the `main.py` script:
+     ```
+     streamlit run main.py
+     ```
+   - This will start a Streamlit server and open the application in your default web browser.
 
-5. Run the Streamlit app:
+5. **Interacting with the Chat Bot:**
+   - Once the application is running, interact with the chatbot by typing questions related to the Ramayana into the input box provided.
 
-```sh
-streamlit run app.py
-```
+6. **Feedback and Contributions:**
+   - Feel free to explore the codebase, make improvements, or provide feedback. Contributions are welcome via pull requests.
 
-6. Access the app in your web browser at `http://localhost:8501`.
+#### Project Focus:
 
-## Usage
+DocuAssist leverages AI technologies to provide an interactive and educational experience focused on document-based queries, starting with the Ramayana PDF in this implementation. By integrating RAG for context retrieval, NLP for response generation, and translation and TTS for multilingual and auditory outputs, the chatbot aims to assist users in understanding and exploring the Ramayana text.
 
-1. Upon running the app, you'll see a text input field where you can enter your query related to the Ramayana.
-2. After entering your query, DocuAssist will display the response along with a translation in Hindi (if available).
-3. You can listen to the response audio by clicking on the provided audio player.
-4. The progress bar indicates the status of each step in processing your query, from retrieving passages to generating the response and translating it.
+#### Future Improvements:
 
-## API Keys
+- Implement advanced methods for passage retrieval within RAG to enhance relevance and accuracy.
+- Expand language translation capabilities to support additional languages beyond English and Hindi.
+- Enhance TTS functionality for clearer and more natural audio responses.
 
-This project requires API keys for accessing various services:
-
-- **OpenAI API Key:** Required for using the GPT-3.5 model for response generation.
-- **Hugging Face API Keys:** Required for translation (Opus-MT-EN-HI) and text-to-speech (MMS-TTS-ENG) models.
-
-Ensure that you have the necessary API keys and configure them properly in the `secrets.toml` file.
-
-## Credits
-
-- **Streamlit:** For providing an easy-to-use web app framework.
-- **OpenAI:** For providing the powerful GPT-3.5 model.
-- **Hugging Face:** For providing the translation and text-to-speech models.
-- **PyPDF2:** For PDF reading functionality.
-
+This setup provides a foundation for an AI-powered document assistance tool that can be extended to support various types of documents beyond the Ramayana, making it versatile and useful for educational and informational purposes.
