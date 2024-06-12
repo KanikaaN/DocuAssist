@@ -1,3 +1,4 @@
+
 # DocuAssist: Your Document Assistant
 
 DocuAssist is an application designed to assist users in exploring and learning from various documents. In this instance, it focuses on the ancient Indian epic, the Ramayana. Leveraging natural language processing (NLP), translation services, and text-to-speech (TTS) technology, DocuAssist provides an interactive platform for users to delve into the depths of the Ramayana.
@@ -25,13 +26,31 @@ cd <repository-directory>
 pip install -r requirements.txt
 ```
 
-3. Run the Streamlit app:
+3. Create a `secrets.toml` file in the `.streamlit` directory:
+
+```sh
+cd .streamlit
+touch secrets.toml
+```
+
+4. Open the `secrets.toml` file and add your API keys in the following format:
+
+```toml
+[openai]
+api_key = "YOUR_OPENAI_API_KEY"
+
+[huggingface]
+translation_api_key = "YOUR_HUGGINGFACE_TRANSLATION_API_KEY"
+tts_api_key = "YOUR_HUGGINGFACE_TTS_API_KEY"
+```
+
+5. Run the Streamlit app:
 
 ```sh
 streamlit run app.py
 ```
 
-4. Access the app in your web browser at `http://localhost:8501`.
+6. Access the app in your web browser at `http://localhost:8501`.
 
 ## Usage
 
@@ -47,7 +66,7 @@ This project requires API keys for accessing various services:
 - **OpenAI API Key:** Required for using the GPT-3.5 model for response generation.
 - **Hugging Face API Keys:** Required for translation (Opus-MT-EN-HI) and text-to-speech (MMS-TTS-ENG) models.
 
-Ensure that you have the necessary API keys and configure them properly in the code.
+Ensure that you have the necessary API keys and configure them properly in the `secrets.toml` file.
 
 ## Credits
 
@@ -56,4 +75,3 @@ Ensure that you have the necessary API keys and configure them properly in the c
 - **Hugging Face:** For providing the translation and text-to-speech models.
 - **PyPDF2:** For PDF reading functionality.
 
-With DocuAssist, immerse yourself in the wisdom of ancient texts like never before.
