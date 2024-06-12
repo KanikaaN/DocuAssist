@@ -57,9 +57,3 @@ Ensure that you have the necessary API keys and configure them properly in the c
 - **Hugging Face:** For providing the translation and text-to-speech models.
 - **PyPDF2:** For PDF reading functionality.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-```
-
-Feel free to copy and paste this Markdown content into a file named `README.md` in your project directory. Adjust any placeholder values like `<repository-url>` and `<repository-directory>` with your actual repository URL and directory name.
