@@ -1,9 +1,8 @@
 import requests
 
-API_URL_TRANSLATE = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-hi"
-headers_translate = {"Authorization": "Bearer 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"}
-
-def translate_text(payload):
+def translate_text(payload, hf_translate_api_key):
+    API_URL_TRANSLATE = "https://api-inference.huggingface.co/models/Helsinki-NLP/opus-mt-en-hi"
+    headers_translate = {"Authorization": f"Bearer {hf_translate_api_key}"}
     response = requests.post(API_URL_TRANSLATE, headers=headers_translate, json=payload)
     
     # Check if the response contains JSON content
@@ -16,4 +15,3 @@ def translate_text(payload):
         return {"error": f"Request error occurred: {req_err}", "content": response.text}
     except ValueError:
         return {"error": "Failed to decode JSON response", "content": response.text}
-

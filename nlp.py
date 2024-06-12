@@ -1,9 +1,11 @@
 import openai
-from transformers import pipeline
+import requests
 
 class NLP:
-    def __init__(self, openai_api_key):
+    def __init__(self, openai_api_key, hf_tts_api_key, hf_translate_api_key):
         openai.api_key = openai_api_key
+        self.hf_tts_api_key = hf_tts_api_key
+        self.hf_translate_api_key = hf_translate_api_key
 
     def generate_response(self, context, user_input):
         prompt = f"Context: {context}\n\nQuestion: {user_input}\nAnswer:"
