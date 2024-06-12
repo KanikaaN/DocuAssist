@@ -1,5 +1,5 @@
-```markdown
-# Ramayana AI Assistant
+
+ Ramayana AI Assistant
 
 The Ramayana AI Assistant is an application designed to assist users in learning about the ancient Indian epic, Ramayana. The application utilizes various natural language processing (NLP) techniques, translation services, and text-to-speech (TTS) technology to provide interactive responses to user queries.
 
