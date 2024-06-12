@@ -62,5 +62,3 @@ This project utilizes several APIs for NLP, translation, and text-to-speech. Ens
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
-
-You can save this content in a file named `README.md` in your project directory. Feel free to modify it as needed to better suit your project and provide more details about its functionality and usage.# DocuAssist
