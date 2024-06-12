@@ -1,6 +1,4 @@
-Certainly! Here's the updated README with the information and steps to add a `secrets.toml` file to run the project:
 
-```markdown
 # DocuAssist: Your Document Assistant
 
 DocuAssist is an application designed to assist users in exploring and learning from various documents. In this instance, it focuses on the ancient Indian epic, the Ramayana. Leveraging natural language processing (NLP), translation services, and text-to-speech (TTS) technology, DocuAssist provides an interactive platform for users to delve into the depths of the Ramayana.
@@ -77,7 +75,3 @@ Ensure that you have the necessary API keys and configure them properly in the `
 - **Hugging Face:** For providing the translation and text-to-speech models.
 - **PyPDF2:** For PDF reading functionality.
 
-With DocuAssist, immerse yourself in the wisdom of ancient texts like never before.
-```
-
-This README now includes instructions for creating and configuring the `secrets.toml` file to securely store the API keys required for the project.
