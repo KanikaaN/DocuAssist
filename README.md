@@ -1,15 +1,14 @@
+# DocuAssist: Your Document Assistant
 
- Ramayana AI Assistant
-
-The Ramayana AI Assistant is an application designed to assist users in learning about the ancient Indian epic, Ramayana. The application utilizes various natural language processing (NLP) techniques, translation services, and text-to-speech (TTS) technology to provide interactive responses to user queries.
+DocuAssist is an application designed to assist users in exploring and learning from various documents. In this instance, it focuses on the ancient Indian epic, the Ramayana. Leveraging natural language processing (NLP), translation services, and text-to-speech (TTS) technology, DocuAssist provides an interactive platform for users to delve into the depths of the Ramayana.
 
 ## Features
 
-- **Text Input:** Users can input their queries or questions related to the Ramayana using the provided text input interface.
-- **Response Generation:** The assistant generates responses based on the provided query using the powerful GPT-3.5 model by OpenAI.
+- **Text Input:** Users can input queries or questions related to the Ramayana using the provided text input interface.
+- **Response Generation:** DocuAssist generates responses based on the input query using the powerful GPT-3.5 model by OpenAI.
 - **Translation:** Responses can be translated into Hindi using the Opus-MT-EN-HI translation model.
-- **Text-to-Speech (TTS):** The original response can be converted into audio using the MMS-TTS-ENG text-to-speech model.
-- **PDF Reading:** The application reads the content of the provided PDF file ("RAMAYANA.pdf") to gather information about the Ramayana.
+- **Text-to-Speech (TTS):** The generated response can be converted into audio using the MMS-TTS-ENG text-to-speech model.
+- **PDF Reading:** DocuAssist reads the content of the provided PDF file ("Ramayana.pdf") to extract information about the Ramayana.
 
 ## Installation
 
@@ -37,7 +36,7 @@ streamlit run app.py
 ## Usage
 
 1. Upon running the app, you'll see a text input field where you can enter your query related to the Ramayana.
-2. After entering your query, the app will display the assistant's response along with a translation in Hindi (if available).
+2. After entering your query, DocuAssist will display the response along with a translation in Hindi (if available).
 3. You can listen to the response audio by clicking on the provided audio player.
 4. The progress bar indicates the status of each step in processing your query, from retrieving passages to generating the response and translating it.
 
@@ -57,3 +56,4 @@ Ensure that you have the necessary API keys and configure them properly in the c
 - **Hugging Face:** For providing the translation and text-to-speech models.
 - **PyPDF2:** For PDF reading functionality.
 
+With DocuAssist, immerse yourself in the wisdom of ancient texts like never before.
